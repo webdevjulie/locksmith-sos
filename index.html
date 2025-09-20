@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Locksmith SOS: “Here to Help, 24/7”</title>
+    <link rel="icon" href="./images/i-locksmith-logo.webp" type="image/webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Signal Red Color System
+                        'signal-red': '#E31B23',
+                        'signal-red-dark-20': '#B3181E',
+                        'signal-red-dark-10': '#CC1A20',
+                        'signal-red-light-10': '#EB3B3E',
+                        'signal-red-light-20': '#F25557',
+                        
+                        // Charcoal System
+                        'charcoal-black': '#1F1F1F',
+                        'deep-charcoal': '#0D0D0D',
+                        'soft-charcoal': '#333333',
+                        
+                        // Neutrals
+                        'light-gray': '#E5E5E5',
+                        'off-white': '#FAFAFA',
+                        'pure-white': '#FFFFFF',
+                        
+                        'emergency-orange': '#FF4500'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+          font-family: "Poppins", sans-serif;
+          background-color: #FAFAFA;
+        }
+        .dropdown-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .dropdown-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+        .mobile-menu-slide {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu-slide.active {
+            transform: translateX(0);
+        }
+
+        /* Ensure mobile menu is always on top */
+        #mobileMenu {
+            z-index: 10000 !important;
+        }
+
+        #mobileMenu .fixed.top-0.left-0 {
+            z-index: 10001 !important;
+        }
+        nav {
+            background-color: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+            border-bottom: 1px solid #E5E5E5;
+        }
+        nav.scrolled {
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(12px);
+        }
+        
+        .gradient-signal-red {
+            background: linear-gradient(135deg, #EB3B3E 0%, #EB3B3E 50%, #F25557 100%);
+        }
+        
+        .gradient-charcoal {
+            background: linear-gradient(135deg, #0D0D0D 0%, #1F1F1F 50%, #333333 100%);
+        }
+
+        /* Modern Custom Scrollbar */
+        ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #EB3B3E, #F25557);
+        border-radius: 9999px;
+        border: 3px solid transparent; /* keeps spacing clean */
+        background-clip: content-box;  /* makes border spacing visible */
+        transition: background 0.3s ease, opacity 0.3s ease;
+        opacity: 0; /* hidden by default */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #C2171E, #EB3B3E);
+        opacity: 1; /* visible on hover */
+        }
+
+        /* Show scrollbar only when scrolling */
+        html:hover::-webkit-scrollbar-thumb,
+        body:hover::-webkit-scrollbar-thumb {
+        opacity: 1;
+        }
+
+        /* Firefox */
+        * {
+        scrollbar-width: thin;
+        scrollbar-color: #E31B23 transparent;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-off-white shadow-md border-b border-light-gray fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <a href="index.html">
+                <img src="./images/sos-logo.png" 
+                    alt="Locksmith-SOS Logo" 
+                    class="h-12 w-auto object-contain hover:scale-105 transition-transform duration-300 ease-in-out">
+                </a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="services.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">Our Services</a>
+                <a href="service-areas.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">Service Areas</a>
+                <a href="faq.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
+                <a href="reviews.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">Reviews</a>
+                <a href="about.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">About</a>
+                <a href="contact.html" class="relative font-medium text-charcoal-black hover:text-signal-red transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-signal-red after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+            </div>
+
+            <!-- Desktop Actions -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="tel:5743187797" class="flex items-center space-x-2 bg-emergency-orange hover:bg-[#E65C00] text-pure-white px-4 py-2 rounded-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                <span class="material-icons text-sm">phone</span>
+                <span>Call (574) 318-7797</span>
+                </a>
+                <a href="book.html" class="flex items-center space-x-2 bg-gradient-to-r from-signal-red to-red-600 hover:from-red-700 hover:to-red-800 text-pure-white px-4 py-2 rounded-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                <span class="material-icons text-sm">calendar_today</span>
+                <span>Book Service</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center space-x-3">
+                <a href="tel:5743187797" class="flex items-center gap-1 px-3 py-2 bg-emergency-orange hover:bg-[#E65C00] text-pure-white rounded-lg text-sm font-medium transition duration-300">
+                <span class="material-icons text-lg">phone</span>
+                <span>Call</span>
+                </a>
+                <a href="book.html" class="flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-signal-red to-red-600 hover:from-red-700 hover:to-red-800 text-pure-white rounded-lg text-sm font-medium transition duration-300">
+                <span class="material-icons text-lg">calendar_today</span>
+                <span>Book</span>
+                </a>
+                <button onclick="toggleMobileMenu()" id="menuBtn" class="p-2 text-charcoal-black hover:text-signal-red transition duration-300">
+                <span class="material-icons text-2xl">menu</span>
+                </button>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 lg:hidden hidden">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-72 bg-off-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out">
+            
+            <!-- Mobile Header -->
+            <div class="flex items-center justify-center p-4 border-b border-light-gray bg-white ">
+            <img src="./images/sos-logo.png" alt="locksmith-sos Logo" class="h-10 object-contain">
+            </div>
+
+            <!-- Mobile Links -->
+            <div class="p-4 space-y-3">
+            <a href="services.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">Our Services</a>
+            <a href="service-areas.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">Service Areas</a>
+            <a href="faq.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">FAQ</a>
+            <a href="reviews.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">Reviews</a>
+            <a href="about.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">About</a>
+            <a href="contact.html" class="block p-3 rounded-lg font-medium text-charcoal-black bg-light-gray hover:bg-signal-red hover:text-white transition duration-300">Contact</a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="p-4 space-y-3 border-t border-light-gray">
+            <a href="tel:+5743187797" class="flex items-center justify-center space-x-2 bg-gradient-to-r from-signal-red to-red-600 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                <span class="material-icons">phone</span>
+                <span>Call Now</span>
+            </a>
+            <a href="book.html" class="flex items-center justify-center space-x-2 bg-emergency-orange hover:bg-[#E65C00] text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                <span class="material-icons">calendar_today</span>
+                <span>Book Service</span>
+            </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Local Hero with Booking Section -->
+    <section class="relative bg-cover bg-center text-white pt-20 md:pt-24 pb-16 flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16 bg-[url('images/bg.png')]">
+
+        <!-- Dark Overlay with Enhanced Charcoal -->
+        <div class="absolute inset-0 bg-gradient-to-br from-deep-charcoal/80 via-charcoal-black/75 to-soft-charcoal/70"></div>
+
+        <div class="relative z-10 max-w-7xl w-full flex flex-col md:flex-row items-center justify-between px-6 lg:px-12">
+            
+            <!-- Left Side: Text + Badges -->
+            <div class="flex-1 flex flex-col justify-center space-y-6 md:space-y-8 max-w-xl text-center md:text-left">
+                <!-- Headline -->
+            <h1 class="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug tracking-tight drop-shadow-md">
+                <span class="bg-gradient-to-r from-signal-red via-signal-red-light-10 to-signal-red-light-20 bg-clip-text text-transparent animate-gradient-x">
+                    Professional
+                </span> 
+                <span class="text-pure-white drop-shadow-lg">Locksmith Services in South Bend, IN</span>
+            </h1>
+
+            <!-- Subtext Badge -->
+            <div class="flex justify-center md:justify-start mt-4">
+                <span class="inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-5 py-2 text-xs sm:text-sm md:text-base shadow-lg backdrop-blur-md text-pure-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
+                    <span class="material-icons text-signal-red-light-20 text-sm md:text-base animate-bounce">support_agent</span>
+                    24/7 Emergency Mobile Service • Licensed & Insured
+                </span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mx-auto md:mx-0 mt-6">
+                <!-- Call Button -->
+                <a href="tel:+5743187797" 
+                class="group flex items-center justify-center gap-2 bg-gradient-to-r from-emergency-orange to-signal-red hover:opacity-90 transition-all duration-300 rounded-xl px-6 py-3 font-semibold text-pure-white text-sm sm:text-base transform hover:scale-105 shadow-xl hover:shadow-2xl min-w-[220px] relative overflow-hidden">
+                    <span class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition duration-500"></span>
+                    <span class="material-icons text-sm sm:text-lg">call</span>
+                    <span>Call (574) 318-7797</span>
+                </a>
+
+                <!-- Services Button -->
+                <a href="services.html" 
+                class="group flex items-center justify-center gap-2 border-2 border-signal-red-light-10 rounded-xl px-6 py-3 font-semibold text-pure-white text-sm sm:text-base hover:bg-gradient-to-r hover:from-signal-red hover:to-signal-red-light-10 hover:border-pure-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl min-w-[220px]">
+                    <span>Our Services</span>
+                    <span class="material-icons text-sm sm:text-lg transform transition-transform duration-300 group-hover:translate-x-1">
+                        arrow_forward
+                    </span>
+                </a>
+            </div>
+
+            <!-- Trust Badges - One Line -->
+            <div class="flex justify-center items-center gap-6 mt-6 w-full">
+            
+                <!-- 24/7 -->
+                <div class="flex items-center gap-2 bg-white/10 px-5 py-3 rounded-xl text-white backdrop-blur shadow-md">
+                    <span class="material-icons text-2xl gradient-signal-red bg-clip-text text-transparent text-lg mr-2 animate-bounce">schedule</span>
+                    <div>
+                    <div class="font-bold gradient-signal-red bg-clip-text text-transparent text-lg mr-2 text-sm">24/7</div>
+                    <p class="text-white/80 text-xs">Always available</p>
+                    </div>
+                </div>
+
+                <!-- Licensed -->
+                <div class="flex items-center gap-2 bg-white/10 px-5 py-3 rounded-xl text-white backdrop-blur shadow-md">
+                    <span class="material-icons text-2xl gradient-signal-red bg-clip-text text-transparent text-lg mr-2 animate-bounce">shield</span>
+                    <div>
+                    <div class="font-bold gradient-signal-red bg-clip-text text-transparent text-lg mr-2 text-sm">Licensed</div>
+                    <p class="text-white/80 text-xs">Your safety first</p>
+                    </div>
+                </div>
+
+                <!-- 5-Star -->
+                <div class="flex items-center gap-2 bg-white/10 px-5 py-3 rounded-xl text-white backdrop-blur shadow-md">
+                    <span class="material-icons text-2xl gradient-signal-red bg-clip-text text-transparent text-lg mr-2 animate-bounce">star</span>
+                    <div>
+                    <div class="font-bold gradient-signal-red bg-clip-text text-transparent text-lg mr-2 text-sm">5-Star</div>
+                    <p class="text-white/80 text-xs">Trusted service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Quick Booking Form -->
+            <div class="flex-1 relative z-10 
+                bg-white/20 
+                backdrop-blur-2xl 
+                rounded-3xl 
+                shadow-lg 
+                p-8 sm:p-10 
+                text-charcoal-black 
+                w-full max-w-lg mt-12 md:mt-0 
+                border border-white/50 
+                bg-gradient-to-br from-white/20 to-white/10">
+    
+
+                <!-- Heading -->
+                <h3 class="text-2xl sm:text-3xl font-extrabold mb-8 text-center text-charcoal-black">
+                    Book a <span class="gradient-signal-red bg-clip-text text-transparent">Locksmith SOS</span> Now
+                </h3>
+                
+                <!-- Form -->
+                <form id="booking-form" class="space-y-6" novalidate>
+                    
+                    <!-- Name & Phone Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="relative">
+                            <input type="text" id="name" name="name" placeholder=" " required
+                                class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition placeholder-transparent">
+                            <label for="name" class="absolute left-3 top-3 text-soft-charcoal text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-soft-charcoal peer-placeholder-shown:text-sm peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-signal-red bg-pure-white px-1">
+                                Your Name *
+                            </label>
+                        </div>
+                        <div class="relative">
+                            <input type="tel" id="phone" name="phone" placeholder=" " required
+                                class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition placeholder-transparent">
+                            <label for="phone" class="absolute left-3 top-3 text-soft-charcoal text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-soft-charcoal peer-placeholder-shown:text-sm peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-signal-red bg-pure-white px-1">
+                                Phone Number *
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="relative">
+                        <input type="text" id="address" name="address" placeholder=" " required
+                            class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition placeholder-transparent">
+                        <label for="address" class="absolute left-3 top-3 text-soft-charcoal text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-soft-charcoal peer-placeholder-shown:text-sm peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-signal-red bg-pure-white px-1">
+                            Service Address *
+                        </label>
+                    </div>
+
+                    <!-- Service Type & Needed -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="relative">
+                            <select id="service_type" name="service_type" required
+                                class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition">
+                                <option value="" disabled selected>Select Service Type</option>
+                                <option>Car Lockout</option>
+                                <option>House Lockout</option>
+                                <option>Business Lockout</option>
+                                <option>Storage Unit Lockout</option>
+                                <option>Lock Replacement</option>
+                                <option>Lock Rekey</option>
+                                <option>Lock Repair</option>
+                                <option>Gate Locks</option>
+                                <option>Commercial Lock Replacement</option>
+                                <option>Commercial Rekey</option>
+                                <option>Emergency Exit Devices</option>
+                                <option>Master Key Systems</option>
+                                <option>Access Control</option>
+                                <option>Car Key Replacement</option>
+                                <option>Car Key Duplicate</option>
+                                <option>Car Key Cutting</option>
+                                <option>Key Fob Programming</option>
+                                <option>Ignition Lock Cylinder</option>
+                            </select>
+                            <label for="service_type" class="block mt-1 text-xs text-soft-charcoal">Service Type *</label>
+                        </div>
+                        <div class="relative">
+                            <select id="needed" name="needed" required
+                                class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition">
+                                <option value="" disabled selected>Select Time Frame</option>
+                                <option>ASAP</option>
+                                <option>Same Day</option>
+                                <option>Within a few days</option>
+                                <option>In a few weeks</option>
+                                <option>Other</option>
+                            </select>
+                            <label for="needed" class="block mt-1 text-xs text-soft-charcoal">When Needed? *</label>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="relative">
+                        <textarea id="notes" name="notes" rows="2" placeholder=" " 
+                            class="peer w-full border border-light-gray rounded-xl p-3 text-sm shadow-sm bg-pure-white focus:ring-2 focus:ring-signal-red focus:border-signal-red focus:outline-none transition placeholder-transparent"></textarea>
+                        <label for="notes" class="absolute left-3 top-3 text-soft-charcoal text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-soft-charcoal peer-placeholder-shown:text-sm peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-signal-red bg-pure-white px-1">
+                            Additional Notes
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="w-full py-4 gradient-signal-red text-pure-white font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] hover:bg-signal-red-dark-10 transition-all duration-300 flex items-center justify-center gap-2 text-lg tracking-wide">
+                        <span class="material-icons text-xl animate-pulse">send</span>
+                        Request Service
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+<section class="bg-[#FAFAFA] py-20 md:py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <h2
+        class="text-3xl md:text-5xl font-extrabold leading-tight mb-4 
+               bg-gradient-to-r from-[#E31B23] to-[#B3181E] bg-clip-text text-transparent drop-shadow-sm">
+        Professional Locksmith Services
+      </h2>
+      <p class="text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-[#333]">
+        <span
+          class="text-transparent bg-gradient-to-r from-[#E31B23] to-[#F25557] bg-clip-text font-semibold">
+          Reliable security solutions
+        </span>
+        tailored for residential, commercial, and automotive needs.
+      </p>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- House Lockout -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/house-lockout.webp" alt="House Lockout Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#F25557]">home</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">House Lockout</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            24/7 residential locksmith support. Quick and secure access with proper verification.
+          </p>
+          <a href="./services/house-lockout.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#CC1A20] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Car Lockout -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/car-lockout.webp" alt="Car Lockout Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#EB3B3E]">directions_car</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">Car Lockout</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            Rapid response automotive locksmiths. Safe unlocking for all vehicle types.
+          </p>
+          <a href="./services/car-lockout.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Commercial Locksmith -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/commercial-locksmith.webp" alt="Commercial Locksmith Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#CC1A20]">business</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">Commercial Locksmith</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            Advanced security systems for businesses. Installation, maintenance, and emergency access.
+          </p>
+          <a href="./services/commercial-locksmith.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lock Rekey -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/rekeying.webp" alt="Lock Rekey Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#E31B23]">vpn_key</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">Lock Rekey</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            Enhance security quickly by rekeying existing locks—ideal for lost or compromised keys.
+          </p>
+          <a href="./services/lock-rekey.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Car Key Replacement -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/car-key-replacement.webp" alt="Car Key Replacement Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#EB3B3E]">car_repair</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">Car Key Replacement</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            Key cutting & programming for all makes and models. Fast, affordable replacements.
+          </p>
+          <a href="./services/car-key-replacement.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lock Installation -->
+      <div
+        class="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out">
+        <div class="absolute inset-0">
+          <img src="./images/lock-replacement.webp" alt="Lock Installation Service"
+            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out">
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition duration-500"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-end p-8 text-center text-white">
+          <span class="material-icons text-5xl mb-4 drop-shadow-lg text-[#CC1A20]">build</span>
+          <h3 class="text-2xl font-bold mb-3 text-white drop-shadow">Lock Installation</h3>
+          <p class="text-sm leading-relaxed mb-6 text-[#F5F5F5]">
+            Secure installations of advanced locking systems by certified technicians.
+          </p>
+          <a href="./services/lock-installation.html"
+            class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out inline-flex items-center bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white font-semibold py-2.5 px-6 rounded-full text-sm shadow-lg hover:shadow-xl">
+            Learn More
+            <span class="material-icons text-base ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- 24/7 Emergency Response Available -->
+    <section class="relative bg-gradient-to-r from-[#FAFAFA] to-[#E5E5E5] text-[#1F1F1F] py-24 px-6 md:px-12 overflow-hidden">
+
+    <!-- Subtle background accents -->
+    <div class="absolute inset-0">
+        <div class="absolute top-10 right-10 w-80 h-80 bg-[#EB3B3E]/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-[#B3181E]/15 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
+
+        <!-- Left Side: Text -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-xl">
+        <h2 class="text-3xl md:text-5xl font-extrabold leading-snug
+                    bg-gradient-to-r from-[#E31B23] to-[#B3181E] bg-clip-text text-transparent drop-shadow-sm">
+            24/7 Emergency Response Available
+        </h2>
+
+        <p class="text-lg md:text-xl text-[#333333] leading-relaxed font-medium">
+            Locked out or dealing with an urgent security issue? Our licensed professionals are always on standby — ready to respond <span class="font-semibold text-[#E31B23]">anytime, anywhere.</span>
+        </p>
+        </div>
+
+        <!-- Right Side: Call-to-Action -->
+        <div class="flex flex-col items-center md:items-end space-y-5">
+        <a href="tel:+5743187797"
+            class="flex items-center justify-center gap-3 bg-[#E31B23] hover:bg-[#CC1A20] transition-all duration-300 rounded-2xl px-8 py-5 font-bold text-white text-xl shadow-lg hover:shadow-xl transform hover:scale-105">
+            <span class="material-icons text-2xl">call</span>
+            <span>Call (574) 318-7797</span>
+        </a>
+        <p class="text-sm text-[#666] italic">Immediate response, guaranteed</p>
+        </div>
+    </div>
+    </section>
+
+    
+
+
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-300 pt-16 pb-8 px-6 md:px-12 border-t border-soft-charcoal">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
+
+        <!-- Contact Us -->
+        <div>
+        <h4 class="text-pure-white font-semibold text-lg mb-4 border-b-2 border-signal-red inline-block pb-1">Contact Us</h4>
+        <ul class="space-y-3">
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-xl mr-2 transition-transform duration-300 group-hover:scale-110">call</span>
+            <strong class="text-pure-white group-hover:text-signal-red-light-10 transition">574-318-7797</strong>
+            </li>
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-xl mr-2 transition-transform duration-300 group-hover:scale-110">email</span>
+            <span class="text-light-gray group-hover:text-signal-red-light-10 transition">ilocksmithoffice@gmail.com</span>
+            </li>
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-xl mr-2 transition-transform duration-300 group-hover:scale-110">place</span>
+            <span class="text-light-gray group-hover:text-signal-red-light-10 transition">219 N Dixie Way Ste 209, South Bend, IN 46637</span>
+            </li>
+        </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+        <h4 class="text-pure-white font-semibold text-lg mb-4 border-b-2 border-signal-red inline-block pb-1">Quick Links</h4>
+        <ul class="space-y-3">
+            <li><a href="about.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">info</span> About Us</a></li>
+            <li><a href="services.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">build</span> Services</a></li>
+            <li><a href="faq.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">help</span> FAQ</a></li>
+            <li><a href="reviews.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">star</span> Reviews</a></li>
+            <li><a href="contact.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">call</span> Contact</a></li>
+            <li><a href="blog.html" class="flex items-center group hover:text-signal-red-light-10 transition"><span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">article</span> Blog</a></li>
+        </ul>
+        </div>
+
+        <!-- We're Here 24/7 -->
+        <div>
+        <h4 class="text-pure-white font-semibold text-lg mb-4 border-b-2 border-signal-red inline-block pb-1">We're Here 24/7</h4>
+        <ul class="space-y-2">
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Sunday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Monday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Tuesday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Wednesday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Thursday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Friday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+            <li class="flex items-center"><span class="material-icons text-signal-red text-lg mr-2">schedule</span><strong class="text-pure-white">Saturday:</strong>&nbsp; <span class="text-light-gray">Open 24 Hours</span></li>
+        </ul>
+        </div>
+
+        <!-- A Locksmith You Can Trust -->
+        <div>
+        <h4 class="text-pure-white font-semibold text-lg mb-4 border-b-2 border-signal-red inline-block pb-1">
+            A Locksmith You Can Trust
+        </h4>
+        <ul class="space-y-3 text-light-gray">
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">verified</span>
+            <span class="group-hover:text-signal-red-light-10 transition">Bonded & Insured</span>
+            </li>
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">workspace_premium</span>
+            <span class="group-hover:text-signal-red-light-10 transition">ALOA Certified</span>
+            </li>
+            <li class="flex items-center group">
+            <span class="material-icons gradient-signal-red bg-clip-text text-transparent text-lg mr-2 transition-transform duration-300 group-hover:scale-125">star</span>
+            <span class="group-hover:text-signal-red-light-10 transition">5-Star Rated Service</span>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-6 border-t border-signal-red text-center text-light-gray text-sm">
+        <div class="flex flex-col items-center justify-center max-w-7xl mx-auto px-6 gap-2">
+        <p class="text-pure-white">© 2025 iLocksmithIN. All rights reserved.</p>
+        <p>
+            Made with 
+            <span class="text-signal-red animate-pulse">❤️</span> 
+            by 
+            <a href="https://gettmarketing.com/" target="_blank" class="hover:text-signal-red-light-10 font-semibold text-pure-white transition">Gett Marketing</a>
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mt-2">
+            <a href="privacy-policy.html" class="hover:text-signal-red-light-10 transition">Privacy Policy</a>
+            <a href="terms-condition.html" class="hover:text-signal-red-light-10 transition">Terms of Service</a>
+            <a href="accessibility-policy.html" class="hover:text-signal-red-light-10 transition">Accessibility</a>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

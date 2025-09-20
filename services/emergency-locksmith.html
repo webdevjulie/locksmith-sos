@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Include Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#DC143C',
+                        'professional-black': '#1C1C1C',
+                        'clean-white': '#FFFFFF',
+                        'light-gray': '#F5F5F5',
+                        'accent-gray': '#666666',
+                        'emergency-orange': '#FF4500'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+          font-family: "Montserrat", sans-serif;
+        }
+        .dropdown-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .dropdown-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms ease-out, transform 300ms ease-out;
+        }
+        .mobile-menu-slide {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu-slide.active {
+            transform: translateX(0);
+        }
+
+        /* Ensure mobile menu is always on top */
+        #mobileMenu {
+            z-index: 10000 !important;
+        }
+
+        #mobileMenu .fixed.top-0.left-0 {
+            z-index: 10001 !important; /* content above overlay */
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+        }
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- NAV -->
+  <div id="nav"></div>
+
+  <!-- CONTENT -->
+  <main class="container mx-auto py-10">
+    <h1 class="text-4xl font-bold mb-4">Welcome!</h1>
+    <p class="text-lg text-gray-600">This is the homepage.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- Script to include nav & footer -->
+  <script>
+    async function loadHTML(id, file) {
+      const res = await fetch(file);
+      const text = await res.text();
+      document.getElementById(id).innerHTML = text;
+    }
+
+    loadHTML("nav", "nav.html");
+    loadHTML("footer", "footer.html");
+  </script>
+</body>
+</html>

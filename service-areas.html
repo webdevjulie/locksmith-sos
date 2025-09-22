@@ -184,7 +184,7 @@
                     <a href="index.html">
                     <img src="./images/sos-logo.webp" 
                         alt="Locksmith-SOS Logo" 
-                        class="h-12 w-auto object-contain hover:scale-105 transition-transform duration-300 ease-in-out">
+                        class="h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 ease-in-out">
                     </a>
                 </div>
 
@@ -223,7 +223,7 @@
                     <span class="material-icons text-sm">phone</span>
                     <span>Call (574) 318-7797</span>
                     </a>
-                    <a href="book.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
+                    <a href="book-service.html" class="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md"
                     style="background: linear-gradient(to right, #E31B23, #F25557); color: white;">
                     <span class="material-icons text-sm">calendar_today</span>
                     <span>Book Service</span>
@@ -237,7 +237,7 @@
                     <span class="material-icons text-lg">phone</span>
                     <span>Call</span>
                     </a>
-                    <a href="book.html" class="flex items-center gap-1 px-3 py-2 rounded-lg text-white text-sm font-medium transition duration-300"
+                    <a href="book-service.html" class="flex items-center gap-1 px-3 py-2 rounded-lg text-white text-sm font-medium transition duration-300"
                     style="background: linear-gradient(to right, #B3181E, #E31B23);">
                     <span class="material-icons text-lg">calendar_today</span>
                     <span>Book</span>
@@ -252,31 +252,34 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 z-40 lg:hidden hidden">
-        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
-        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-72 bg-[#1F1F1F] shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <!-- Lighter background overlay -->
+        <div class="fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300" onclick="toggleMobileMenu()"></div>
+
+        <!-- Lighter mobile panel -->
+        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-72 bg-[#2C2C2C] shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out">
 
             <!-- Mobile Header -->
-            <div class="flex items-center justify-center p-4 border-b border-[#2A2A2A] bg-[#1F1F1F]">
-                <img src="./images/sos-logo.webp" alt="locksmith-sos Logo" class="h-10 object-contain">
+            <div class="flex items-center justify-center p-4 border-b border-[#3A3A3A] bg-[#2C2C2C]">
+                <img src="./images/sos-logo.webp" alt="locksmith-sos Logo" class="h-20 object-contain">
             </div>
 
             <!-- Mobile Links -->
             <div class="p-4 space-y-3">
-                <a href="services.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Our Services</a>
-                <a href="service-areas.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Service Areas</a>
-                <a href="faq.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">FAQ</a>
-                <a href="reviews.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Reviews</a>
-                <a href="about.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">About</a>
-                <a href="contact.html" class="block p-3 rounded-lg font-medium text-white bg-[#2A2A2A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Contact</a>
+                <a href="services.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Our Services</a>
+                <a href="service-areas.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Service Areas</a>
+                <a href="faq.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">FAQ</a>
+                <a href="reviews.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Reviews</a>
+                <a href="about.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">About</a>
+                <a href="contact.html" class="block p-3 rounded-lg font-medium text-white bg-[#3A3A3A] hover:bg-gradient-to-r hover:from-[#E31B23] hover:to-[#B3181E] hover:text-white transition duration-300">Contact</a>
             </div>
 
             <!-- Mobile Actions -->
-            <div class="p-4 space-y-3 border-t border-[#2A2A2A]">
+            <div class="p-4 space-y-3 border-t border-[#3A3A3A]">
                 <a href="tel:+5743187797" class="flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium text-white transition duration-300" style="background: linear-gradient(to right, #B3181E, #E31B23);">
                     <span class="material-icons">phone</span>
                     <span>Call Now</span>
                 </a>
-                <a href="book.html" class="flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium text-white transition duration-300" style="background: linear-gradient(to right, #E31B23, #F25557);">
+                <a href="book-service.html" class="flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium text-white transition duration-300" style="background: linear-gradient(to right, #E31B23, #F25557);">
                     <span class="material-icons">calendar_today</span>
                     <span>Book Service</span>
                 </a>

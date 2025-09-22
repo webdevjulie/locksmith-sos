@@ -333,61 +333,175 @@
         </div>
     </section>
 
-    <!-- Featured Articles Section -->
-<section class="relative bg-[#1F1F1F] text-white py-20 md:py-28 overflow-hidden">
-    <div class="relative max-w-6xl mx-auto px-6 lg:px-12 text-center">
+    <!-- Blog Section -->
+    <section class="bg-[#1F1F1F] text-white py-20 md:py-28">
+        
+        <div class="max-w-6xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Sidebar -->
+            <aside class="space-y-12">
+                <!-- Search -->
+                <div class="bg-[#1A1A1A]/80 p-6 rounded-2xl border-2 border-[#E31B23] shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Search</h3>
+                    <div class="flex">
+                        <input id="search-input" type="text" placeholder="Search posts..." 
+                            class="flex-1 px-4 py-2 rounded-l-lg bg-[#2A2A2A] border border-gray-600 text-white focus:outline-none">
+                        <button id="search-btn" 
+                                class="bg-[#E31B23] hover:bg-[#FF1E1E] px-4 rounded-r-lg transition text-white">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
 
-        <!-- Heading -->
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-            Our <span class="bg-gradient-to-r from-[#FF1E1E] via-[#E31B23] to-[#8B0000] bg-clip-text text-transparent">
-                Featured Articles</span>
-        </h2>
-        <p class="text-lg md:text-xl text-gray-300 mb-12">
-            Our most popular garage door tips and advice
-        </p>
+                <!-- Popular Posts -->
+                <div class="bg-[#1A1A1A]/80 p-6 rounded-2xl border-2 border-[#E31B23] shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Popular Posts</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="material-icons text-[#E31B23] text-3xl">home</span>
+                            <a href="./blog/residential-locksmith.html" class="text-gray-200 hover:text-[#FF1E1E] transition">Tips for Choosing a Residential Locksmith</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-icons text-[#E31B23] text-3xl">business</span>
+                            <a href="./blog/commercial-security.html" class="text-gray-200 hover:text-[#FF1E1E] transition">Top Security Measures for Commercial Properties</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-icons text-[#E31B23] text-3xl">warning</span>
+                            <a href="./blog/emergency-lockout.html" class="text-gray-200 hover:text-[#FF1E1E] transition">How to Handle Lockouts in Emergencies</a>
+                        </li>
+                    </ul>
+                </div>
 
-        <!-- Articles Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Article Card 1 -->
-            <div class="flex flex-col p-6 bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md">
-                <span class="text-sm text-gray-400 mb-1">Maintenance • 4 min read</span>
-                <h3 class="text-xl font-semibold text-white mb-2">5 Signs Your Garage Door Spring Needs Replacement</h3>
-                <p class="text-gray-400 mb-4">Learn the warning signs that indicate your garage door springs are failing and need professional replacement to avoid safety hazards.</p>
-                <span class="text-gray-500 text-sm mb-4">December 15, 2024</span>
-                <a href="#" class="mt-auto text-[#FF4500] font-semibold hover:underline">Read More →</a>
+                <!-- Categories -->
+                <div class="bg-[#1A1A1A]/80 p-6 rounded-2xl border-2 border-[#E31B23] shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-[#E31B23]">home</span>
+                            <a href="./services/residential-locksmith.html" class="text-gray-200 hover:underline">Residential</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-[#E31B23]">business</span>
+                            <a href="./services/commercial-locksmith.html" class="text-gray-200 hover:underline">Commercial</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-[#E31B23]">warning</span>
+                            <a href="./services/emergency-locksmith.html" class="text-gray-200 hover:underline">Emergency</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-[#E31B23]">directions_car</span>
+                            <a href="./services/auto-locksmith.html" class="text-gray-200 hover:underline">Auto</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Posts Grid -->
+            <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Post Card 1 -->
+                <div class="flex flex-col bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md overflow-hidden">
+                    <img src="./images/recent-3.webp" alt="Residential Locksmith Tips" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col flex-1">
+                        <span class="text-sm text-gray-400 mb-1">Residential • 4 min read</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Tips for Choosing a Residential Locksmith</h3>
+                        <p class="text-gray-400 mb-4 flex-1">Learn how to select a reliable residential locksmith to secure your home effectively.</p>
+                        <span class="text-gray-500 text-sm mb-4">September 20, 2025</span>
+                    </div>
+                </div>
+
+                <!-- Post Card 2 -->
+                <div class="flex flex-col bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md overflow-hidden">
+                    <img src="./images/recent-4.webp" alt="Commercial Locksmith Security" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col flex-1">
+                        <span class="text-sm text-gray-400 mb-1">Commercial • 6 min read</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Top Security Measures for Commercial Properties</h3>
+                        <p class="text-gray-400 mb-4 flex-1">Discover the best practices for securing commercial properties with professional locksmith solutions.</p>
+                        <span class="text-gray-500 text-sm mb-4">September 18, 2025</span>
+                    </div>
+                </div>
+
+                <!-- Post Card 3 -->
+                <div class="flex flex-col bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md overflow-hidden">
+                    <img src="./images/plan.webp" alt="Emergency Locksmith" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col flex-1">
+                        <span class="text-sm text-gray-400 mb-1">Emergency • 5 min read</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">How to Handle Lockouts in Emergencies</h3>
+                        <p class="text-gray-400 mb-4 flex-1">Quick tips on what to do during lockouts and how professional locksmiths can help in emergencies.</p>
+                        <span class="text-gray-500 text-sm mb-4">September 15, 2025</span>
+                    </div>
+                </div>
+
+                <!-- Post Card 4 -->
+                <div class="flex flex-col bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md overflow-hidden">
+                    <img src="./images/recent-5.webp" alt="Auto Locksmith Tips" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col flex-1">
+                        <span class="text-sm text-gray-400 mb-1">Auto • 3 min read</span>
+                        <h3 class="text-xl font-semibold text-white mb-2">Essential Auto Locksmith Tips</h3>
+                        <p class="text-gray-400 mb-4 flex-1">Learn how to protect your vehicle and handle lock issues efficiently with professional locksmith advice.</p>
+                        <span class="text-gray-500 text-sm mb-4">September 10, 2025</span>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Article Card 2 -->
-            <div class="flex flex-col p-6 bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md">
-                <span class="text-sm text-gray-400 mb-1">Installation • 6 min read</span>
-                <h3 class="text-xl font-semibold text-white mb-2">How to Choose the Right Garage Door for Your Bergen County Home</h3>
-                <p class="text-gray-400 mb-4">A comprehensive guide to selecting the perfect garage door style, material, and features for New Jersey weather conditions.</p>
-                <span class="text-gray-500 text-sm mb-4">December 10, 2024</span>
-                <a href="#" class="mt-auto text-[#FF4500] font-semibold hover:underline">Read More →</a>
-            </div>
+    <!-- CTA Section -->
+    <section class="relative bg-gradient-to-r from-[#E31B23] to-[#B3181E] text-white py-20 overflow-hidden">
 
-            <!-- Article Card 3 -->
-            <div class="flex flex-col p-6 bg-[#1A1A1A]/80 rounded-2xl border-2 border-[#E31B23] hover:border-[#FF1E1E] transition shadow-md">
-                <span class="text-sm text-gray-400 mb-1">Maintenance • 5 min read</span>
-                <h3 class="text-xl font-semibold text-white mb-2">Winter Garage Door Maintenance Tips for NJ Homeowners</h3>
-                <p class="text-gray-400 mb-4">Essential maintenance tips to keep your garage door functioning smoothly through harsh New Jersey winters.</p>
-                <span class="text-gray-500 text-sm mb-4">December 5, 2024</span>
-                <a href="#" class="mt-auto text-[#FF4500] font-semibold hover:underline">Read More →</a>
-            </div>
-
+        <!-- Background glow accents -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-20 -right-20 w-80 h-80 bg-[#FF4B4F]/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#B3181E]/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <!-- All Articles Button -->
-        <div class="mt-12">
-            <a href="#" class="inline-block px-8 py-3 bg-gradient-to-r from-[#E31B23] to-[#FF1E1E] text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition">
-                View All Articles
-            </a>
+        <div class="relative z-10 max-w-3xl mx-auto text-center px-6">
+
+            <!-- Icon Circle -->
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span class="material-icons text-white text-4xl">call</span>
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg leading-snug">
+                Need Professional Locksmith Help Now?
+            </h2>
+
+            <!-- Subtext -->
+            <p class="text-base md:text-lg mb-10 opacity-90 leading-relaxed">
+                Don’t wait until it’s too late! Protect your home, office, and family today. Our certified locksmiths provide fast, reliable, and secure service you can trust.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
+                <a href="tel:5743187797"
+                    class="flex items-center gap-3 px-8 py-4 bg-white text-[#E31B23] font-bold rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-[#E31B23] text-xl">call</span>
+                    <span>Call 574-318-7797</span>
+                </a>
+                <a href="book.html"
+                    class="flex items-center gap-3 px-8 py-4 border-2 border-white bg-transparent text-white font-bold rounded-xl hover:bg-white hover:text-[#E31B23] hover:scale-105 transition-all duration-300">
+                    <span class="material-icons text-lg">calendar_month</span>
+                    <span>Book Service</span>
+                </a>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap justify-center gap-8 text-white/90 text-base md:text-lg">
+                <div class="flex items-center gap-2">
+                    <span class="material-icons text-white text-lg">schedule</span>
+                    <span>24/7 Emergency Service</span>
+                </div>
+            <div class="flex items-center gap-2">
+                <span class="material-icons text-white text-lg">verified</span>
+                <span>Licensed & Insured</span>
+            </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-icons text-white text-lg">star</span>
+                    <span>5-Star Rated & Trusted</span>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!-- Footer -->
     <footer class="bg-black text-gray-300 pt-16 pb-12 px-6 md:px-12 relative">
@@ -527,17 +641,23 @@
 
     <script src="script.js"></script>
 
-    <!-- SwiperJS CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: { el: ".swiper-pagination", clickable: true },
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+        const searchBtn = document.getElementById('search-btn');
+        const searchInput = document.getElementById('search-input');
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim();
+            if(query) {
+                // Redirect to a search results page with the query as a URL parameter
+                window.location.href = `blog.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+
+        // Optional: allow pressing Enter key to search
+        searchInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                searchBtn.click();
+            }
         });
     </script>
 
